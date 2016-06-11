@@ -1,6 +1,6 @@
 {
   "name": "todos",
-  "plural": "Yes",
+  "plural": "todos",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
