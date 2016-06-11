@@ -10,6 +10,9 @@
     "name": {
       "type": "string"
     },
+    "note": {
+      "type": "string"
+    },
     "completed": {
       "type": "boolean",
       "default": false
@@ -20,7 +23,33 @@
     }
   },
   "validations": [],
-  "relations": {},
-  "acls": [],
+  "relations": {
+    "users": {
+      "type": "hasOne",
+      "model": "User",
+      "foreignKey": ""
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "create"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW"
+    }
+  ],
   "methods": {}
 }
